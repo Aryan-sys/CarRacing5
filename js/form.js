@@ -3,22 +3,24 @@ class Form{
    this.input = createInput("name");
    this.button = createButton("play");
    this.greeting = createElement('h3');
+   this.title = createElement('h2');
     }
     hide(){
         this.input.hide();
         this.button.hide();
         this.greeting.hide();
+        this.title.hide();
     }
     display(){
-        var title = createElement('h2');
-        title.html("car racing game");
-        title.position(130,0);
+        
+        this.title.html("car racing game");
+        this.title.position(displayWidth / 2 - 50 , 0);
         
        
-        this.input.position(130,160);
+        this.input.position(displayWidth / 2 - 40, displayHeight / 2 - 80);
 
         
-        this.button.position(250,200);
+        this.button.position(displayWidth / 2 + 30, displayHeight / 2);
         
         this.button.mousePressed( ()=>{
             this.input.hide();
@@ -32,7 +34,7 @@ class Form{
             
         
             this.greeting.html("hello " + player.name);
-            this.greeting.position(130,160);
+            this.greeting.position(displayWidth / 2 - 70 , displayHeight / 4);
         });
     }
 }
