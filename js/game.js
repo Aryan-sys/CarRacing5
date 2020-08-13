@@ -29,6 +29,12 @@ class Game{
           car4 = createSprite(700,200);
           cars = [car1, car2, car3, car4]
           
+          car1.addImage("car1", car1Img);
+          car2.addImage("car2", car2Img);
+          car3.addImage("car3", car3Img);
+          car4.addImage("car4", car4Img);
+
+
 
       }
          play(){
@@ -37,10 +43,12 @@ class Game{
              text("Game Start",120,100);
              Player.getPlayerInfo();
              if(allPlayers !== undefined){
-                
+                 background("#4B4B4B");   
+                 image(trackImg, 0, -displayHeight * 4, displayWidth , displayHeight * 5);
+
                  //var display_position = 130;
                  var index = 0;
-                 var x = 0;
+                 var x = 175;
                  var y = 0;
                  for(var plr in allPlayers){
                      index = index + 1;
@@ -56,11 +64,12 @@ class Game{
                         
                      }
                     
-                    
+
+                  //  console.log(player.distance);
                      
-                     textSize(15);
-                     text( "name  : " + allPlayers[plr].name, x - 50 , y + 200 );
-                     text("distance  : " + allPlayers[plr].distance, x - 10 , y + 150 );
+                     //textSize(15);
+                     
+                     
                      
                  }
              }
@@ -68,7 +77,23 @@ class Game{
                  player.distance += 50;
                  player.update();
              }
+             if(player.distance > 3800){
+                 gameState = 2;
+             }
+             
              drawSprites(); 
+         }
+         end(){                                         
+             game.update(2);
+             
+            // text("GAME OVER", x - 200, y - 200 ) ;
+            for(var a in allPlayers){
+                console.log(allPlayers[a].name);
+                textSize(30);
+                text( "name  : " + allPlayers[a].name, 150 ,300 );
+                text("distance  : " + allPlayers[a].distance, 150 , 250 );
+              
+            }   
          }
         
     }
