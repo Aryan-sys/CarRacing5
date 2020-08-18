@@ -37,9 +37,12 @@ function draw(){
     }
     if(gameState === 1){
         clear();
+        fill("red");
+        text("GAME OVER",  displayWidth / 2, displayHeight / 2 ) ;
         game.play();
     }
       if(gameState === 2){
+     
           game.end();
       }
 }

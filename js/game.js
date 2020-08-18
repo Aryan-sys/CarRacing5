@@ -44,7 +44,7 @@ class Game{
              Player.getPlayerInfo();
              if(allPlayers !== undefined){
                  background("#4B4B4B");   
-                 image(trackImg, 0, -displayHeight * 4, displayWidth , displayHeight * 5);
+                image(trackImg, 0, -displayHeight * 4, displayWidth , displayHeight * 5);
 
                  //var display_position = 130;
                  var index = 0;
@@ -59,6 +59,9 @@ class Game{
 
                      if(index === player.index){
                          cars[index - 1].shapeColor = "red";
+                         stroke(10);
+                         fill("red");
+                         ellipse(x,y , 70, 70);
                          camera.position.x = displayWidth / 2;
                          camera.position.y = cars[index - 1].y;
                         
@@ -67,7 +70,9 @@ class Game{
 
                   //  console.log(player.distance);
                      
-                     //textSize(15);
+                  //  textSize(15);
+                    //  text( "name  : " + allPlayers[plr].name, displayWidth / 2, displayHeight / 2 );
+                //text("distance  : " + allPlayers[plr].distance, displayWidth / 2 , displayHeight / 4);
                      
                      
                      
@@ -82,18 +87,22 @@ class Game{
              }
              
              drawSprites(); 
+          
          }
-         end(){                                         
+         end(){         
+                                      
              game.update(2);
              
-            // text("GAME OVER", x - 200, y - 200 ) ;
-            for(var a in allPlayers){
+          
+        /* for(var a in allPlayers){
                 console.log(allPlayers[a].name);
                 textSize(30);
-                text( "name  : " + allPlayers[a].name, 150 ,300 );
-                text("distance  : " + allPlayers[a].distance, 150 , 250 );
+                stroke(10);
+                fill("red");
+                text("GAME OVER", displayWidth - 200, displayHeight / 4); 
               
-            }   
+              
+            }   */
          }
         
     }
