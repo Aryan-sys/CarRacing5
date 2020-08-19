@@ -5,8 +5,7 @@ class Form{
    this.greeting = createElement('h3');
    this.title = createElement('h2');
    this.reset = createButton("end");
-   this.gameOver = createElement('h2');
-   
+  
     }
     hide(){
         this.input.hide();
@@ -46,11 +45,8 @@ class Form{
         this.reset.mousePressed( ()=>{
             player.updateCount(0);
             game.update(0); 
-            fill("red");
-            this.gameOver.html("GameOver");  
-
-            this.gameOver.position(displayWidth / 2, displayHeight / 2);
-            console.log(this.gameOver) ;
+            Player.updateCars(0)
+           
         })
     }
     
